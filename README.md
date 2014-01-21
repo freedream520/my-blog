@@ -1,6 +1,6 @@
 mysite-main
 ===========
-## About
+## Project
 This is my blog web application project based on the [django](https://www.djangoproject.com/) framework. It is running on the sina app engine, its address is [http://lpgray.sinaapp.com](http://lpgray.sinaapp.com).
 
 ## Dependencies
@@ -8,7 +8,17 @@ This is my blog web application project based on the [django](https://www.django
 - django framework
 
 ## Technology
+### Front-end Tools
 - twitter bootstrap
 - jquery
-- django
-- mysql
+
+### Server
+- Sina app engine
+
+### Database
+- mysql 5.5
+
+## Author
+- [about me.](http://lpgray.sinaapp.com/about)
+- [新浪微博](http://weibo.com/zhangyangray)
+- [mail me.](mailto://rayzy1991@gmail.com)
