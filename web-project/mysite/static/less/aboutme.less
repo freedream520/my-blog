@@ -2,7 +2,7 @@ body, html{
   padding: 0; margin: 0;
   font-family: 'microsoft yahei','黑体','arial';
   width: 100%; height: 100%;
-  font-size: 26px;
+  font-size: 30px;
   background: #000;
   color: #fff;
   text-shadow: 2px 2px 2px rgba(0,0,0,.8);
@@ -25,7 +25,7 @@ strong{
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   box-shadow: 0 1px 1px rgba(0,0,0,.5), 0 1px 0px rgba(255,255,255,.5) inset;
 }
 small{
@@ -52,6 +52,7 @@ section{
     height: 300px; width: 800px;
     margin-top: -150px; margin-left: -400px;
     z-index: 2;
+    opacity: 0;
   }
   .bg{
     position: absolute;
@@ -61,9 +62,59 @@ section{
     opacity: .3;
     z-index: 1;
   }
+  .link{
+    text-decoration: none;
+    color: #fff;
+    &:hover{
+      color: #eee;
+    }
+    &:active{
+      color: #f00;
+    }
+  }
+}
+section .j_leave{
+  opacity: 0;
+  transition: all .5s ease .5s;
+}
+section .avatar,
+section .j_leave .avatar{
+  position: relative;
+  opacity: 0;
+  transition: all .5s ease .5s;
+  left: -30px;
+}
+section strong,
+section .j_leave strong{
+  position: relative;
+  opacity: 0;
+  top: -30px;
+  transition: all .5s ease .5s;
+}
+section .j_enter{
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+section .j_enter strong{
+  opacity: 1;
+  top: 0;
+  transition: all .5s ease .3s;
+}
+section .j_enter .avatar{
+  opacity: 1;
+  left: 0;
+  transition: all .5s ease .5s;
 }
 .section_1{
   background-color: #00ACFE;
+}
+.section_1 .bg{
+  background-image: -webkit-radial-gradient(circle contain,#4cc5fd,#00aeff);
+  background-image: -moz-radial-gradient(circle contain,#4cc5fd,#00aeff);
+  background-image: -o-radial-gradient(circle contain,#4cc5fd,#00aeff);
+  background-image: -ms-radial-gradient(circle contain,#4cc5fd,#00aeff);
+  background-image: radial-gradient(circle contain,#4cc5fd,#00aeff);
+  opacity: 1;
 }
 .section_1 .avatar{
   margin-bottom: 10px;
@@ -76,6 +127,12 @@ section{
   background-color: #F94A71;
   text-shadow: none;
 }
+.section_3 .thum{
+  width: 169px; height: 144px;
+  font-size: 0; text-indent: -9999px;
+  background: url(../img/aboutme/about_03.png) 0 0 no-repeat;
+  margin: 0 auto;
+}
 .section_4{
   background-image: url(../img/aboutme/3.jpg);
   text-align: right;
@@ -85,6 +142,16 @@ section{
   color: #261F19;
   text-shadow: none;
   text-align: left;
+}
+.section_5 .thum{
+  width: 342px; height: 145px;
+  font-size: 0; text-indent: -9999px;
+  background-image: url(../img/aboutme/about_07.png);
+  background-position: right 0;
+  background-repeat: no-repeat;
+  background-size: 230px;
+  margin-top: 120px;
+  float: right;
 }
 .section_6{
   background-image: url(../img/aboutme/6.jpg);
@@ -96,6 +163,16 @@ section{
 }
 .section_8{
   background-image: url(../img/aboutme/2.jpg);
+}
+.section_8 .inner{
+  width: 700px;
+  margin-left: -350px;
+}
+.section_8 .avatar{
+  float: left;
+}
+.section_8 p{
+  text-align: right;
 }
 .slider{
   position: absolute;

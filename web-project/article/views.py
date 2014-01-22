@@ -36,7 +36,7 @@ def showArticle( request, aid ):
 @require_GET
 def aboutMe( request ):
     article = Article.objects.get(id=0)
-    return resp('about.html', locals())
+    return resp('aboutme.html', locals())
 
 @login_required
 @require_POST
