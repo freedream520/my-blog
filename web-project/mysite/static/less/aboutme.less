@@ -7,7 +7,6 @@ body, html{
   color: #fff;
   text-shadow: 2px 2px 2px rgba(0,0,0,.8);
   position: relative;
-  overflow: hidden;
 }
 p{
   line-height: 20px;
@@ -30,6 +29,21 @@ strong{
 }
 small{
   font-size: 0.7em;
+}
+.fixed_right_bottom{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+}
+a.nav_link{
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  .fa{
+    font-size: 16px;
+    vertical-align: middle;
+  }
 }
 #J_thumnails{
   width: 100%;
@@ -72,52 +86,76 @@ section{
       color: #f00;
     }
   }
-}
-section .j_leave{
-  opacity: 0;
-  transition: all .5s ease .5s;
-}
-section .avatar,
-section .j_leave .avatar{
-  position: relative;
-  opacity: 0;
-  transition: all .5s ease .5s;
-  left: -30px;
-}
-section strong,
-section .j_leave strong{
-  position: relative;
-  opacity: 0;
-  top: -30px;
-  transition: all .5s ease .5s;
-}
-section .j_enter{
-  opacity: 1;
-  transition: opacity .5s ease;
-}
-section .j_enter strong{
-  opacity: 1;
-  top: 0;
-  transition: all .5s ease .3s;
-}
-section .j_enter .avatar{
-  opacity: 1;
-  left: 0;
-  transition: all .5s ease .5s;
+  .j_leave{
+    opacity: 0;
+    transition: all .5s ease .5s;
+  }
+  .avatar, .j_leave .avatar{
+    position: relative;
+    opacity: 0;
+    transition: all .5s ease .5s;
+    left: -30px;
+  }
+  strong, .j_leave strong{
+    position: relative;
+    opacity: 0;
+    top: -30px;
+    transition: all .5s ease .5s;
+  }
+  .j_enter{
+    opacity: 1;
+    transition: opacity .5s ease;
+    strong{
+      opacity: 1;
+      top: 0;
+      transition: all .5s ease .3s;
+    }
+    .avatar{
+      opacity: 1;
+      left: 0;
+      transition: all .5s ease .5s;
+    }
+  }
 }
 .section_1{
   background-color: #00ACFE;
-}
-.section_1 .bg{
-  background-image: -webkit-radial-gradient(circle contain,#4cc5fd,#00aeff);
-  background-image: -moz-radial-gradient(circle contain,#4cc5fd,#00aeff);
-  background-image: -o-radial-gradient(circle contain,#4cc5fd,#00aeff);
-  background-image: -ms-radial-gradient(circle contain,#4cc5fd,#00aeff);
-  background-image: radial-gradient(circle contain,#4cc5fd,#00aeff);
-  opacity: 1;
-}
-.section_1 .avatar{
-  margin-bottom: 10px;
+  .bg{
+    background-image: -webkit-radial-gradient(circle contain,#4cc5fd,#00aeff);
+    background-image: -moz-radial-gradient(circle contain,#4cc5fd,#00aeff);
+    background-image: -o-radial-gradient(circle contain,#4cc5fd,#00aeff);
+    background-image: -ms-radial-gradient(circle contain,#4cc5fd,#00aeff);
+    background-image: radial-gradient(circle contain,#4cc5fd,#00aeff);
+    opacity: 1;
+  }
+  .avatar{
+    margin: 0; padding: 0;
+    background-image: url(../img/aboutme/me_03.png);
+    background-size: cover;
+    width: 596px; height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin-left: -150px;
+    float: left;
+  }
+  .inner{
+    top: 0;
+    margin-top: 0;
+    height: 100%;
+    text-align: right;
+    .article{
+      width: 100%;
+      height: 140px;
+      position: absolute;
+      top: 50%;
+      margin-top: -70px;
+    }
+    strong{
+      font-size: 1.8rem;
+    }
+    small{
+      font-size: 0.6rem;
+    }
+  }
 }
 .section_2{
   background-image: url(../img/aboutme/1.jpg);
@@ -134,7 +172,7 @@ section .j_enter .avatar{
   margin: 0 auto;
 }
 .section_4{
-  background-image: url(../img/aboutme/3.jpg);
+  background-image: url(../img/aboutme/7.jpg);
   text-align: right;
 }
 .section_5{
@@ -151,10 +189,11 @@ section .j_enter .avatar{
   background-repeat: no-repeat;
   background-size: 230px;
   margin-top: 120px;
+  margin-right: 20px;
   float: right;
 }
 .section_6{
-  background-image: url(../img/aboutme/6.jpg);
+  background-image: url(../img/aboutme/5.jpg);
   text-align: right;
 }
 .section_7{
@@ -195,6 +234,58 @@ section .j_enter .avatar{
     &.active a{
       opacity: 1;
       box-shadow: 0 2px 2px rgba(0,0,0,.5);
+    }
+  }
+}
+@media (max-width : 799px){
+  body, html{
+    font-size: 20px;
+  }
+  .slider{
+    right: 10px;
+  }
+  strong{
+    font-size: 1.6em;
+  }
+  p{
+    padding: 10px 0;
+  }
+  section{
+    background-size: cover;
+    small{
+      font-size: 16px;
+    }
+    .inner{
+      width: 100%;
+      left: 0;
+      margin-left: 0;
+      p{
+        padding: 10px 20px;
+      }
+    }
+  }
+  .section_1 {
+    .avatar{
+      margin-left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .inner .article{
+        text-align: center;
+        margin-top: 30px;
+      }
+  }
+  .section_8{
+    .avatar{
+      float: none;
+    }
+    .inner{
+      width: 100%;
+      margin-left: 0;
+      left: 0;
+      p{
+        text-align: center;
+      }
     }
   }
 }
