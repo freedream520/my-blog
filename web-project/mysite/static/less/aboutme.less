@@ -7,233 +7,233 @@ body, html{
   color: #fff;
   text-shadow: 2px 2px 2px rgba(0,0,0,.8);
   position: relative;
-}
-p{
-  line-height: 20px;
-  padding: 20px 0; margin: 0;
-  letter-spacing: 3px;
-}
-strong{
-  font-size: 2em;
-  font-weight: normal;
-  letter-spacing: 0;
-}
-.avatar{
-  background: url(../img/main/ray2.jpg) center center no-repeat;
-  font-size: 0; text-indent: -9999px;
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-  margin: 0 auto 20px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.5), 0 1px 0px rgba(255,255,255,.5) inset;
-}
-small{
-  font-size: 0.7em;
-}
-.fixed_right_bottom{
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  z-index: 2;
-}
-a.nav_link{
-  font-size: 14px;
-  color: #fff;
-  text-decoration: none;
-  .fa{
-    font-size: 16px;
-    vertical-align: middle;
+  p{
+    line-height: 20px;
+    padding: 20px 0; margin: 0;
+    letter-spacing: 3px;
   }
-}
-#J_thumnails{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0; left: 0;
-}
-section{
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-size: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: relative;
-  .inner{
-    position: absolute;
-    width: 100%;
-    top: 50%; left: 50%;
-    height: 300px; width: 800px;
-    margin-top: -150px; margin-left: -400px;
-    z-index: 2;
-    opacity: 0;
-  }
-  .bg{
-    position: absolute;
-    width: 100%; height: 100%;
-    top: 0; bottom: 0;
-    background: #000;
-    opacity: .3;
-    z-index: 1;
-  }
-  .link{
-    text-decoration: none;
-    color: #fff;
-    &:hover{
-      color: #eee;
-    }
-    &:active{
-      color: #f00;
-    }
-  }
-  .j_leave{
-    opacity: 0;
-    transition: all .5s ease .5s;
-  }
-  .avatar, .j_leave .avatar{
-    position: relative;
-    opacity: 0;
-    transition: all .5s ease .5s;
-    left: -30px;
-  }
-  strong, .j_leave strong{
-    position: relative;
-    opacity: 0;
-    top: -30px;
-    transition: all .5s ease .5s;
-  }
-  .j_enter{
-    opacity: 1;
-    transition: opacity .5s ease;
-    strong{
-      opacity: 1;
-      top: 0;
-      transition: all .5s ease .3s;
-    }
-    .avatar{
-      opacity: 1;
-      left: 0;
-      transition: all .5s ease .5s;
-    }
-  }
-}
-.section_1{
-  background-color: #00ACFE;
-  .bg{
-    background-image: -webkit-radial-gradient(circle contain,#4cc5fd,#00aeff);
-    background-image: -moz-radial-gradient(circle contain,#4cc5fd,#00aeff);
-    background-image: -o-radial-gradient(circle contain,#4cc5fd,#00aeff);
-    background-image: -ms-radial-gradient(circle contain,#4cc5fd,#00aeff);
-    background-image: radial-gradient(circle contain,#4cc5fd,#00aeff);
-    opacity: 1;
+  strong{
+    font-size: 2em;
+    font-weight: normal;
+    letter-spacing: 0;
   }
   .avatar{
-    margin: 0; padding: 0;
-    background-image: url(../img/aboutme/me_03.png);
-    background-size: cover;
-    width: 596px; height: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    margin-left: -150px;
+    background: url(../img/main/ray2.jpg) center center no-repeat;
+    font-size: 0; text-indent: -9999px;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin: 0 auto 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.5), 0 1px 0px rgba(255,255,255,.5) inset;
+  }
+  small{
+    font-size: 0.7em;
+  }
+  .fixed_right_bottom{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 2;
+  }
+  a.nav_link{
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    .fa{
+      font-size: 14px;
+      vertical-align: middle;
+    }
+  }
+  #J_thumnails{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+  }
+  section{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    .inner{
+      position: absolute;
+      width: 100%;
+      top: 50%; left: 50%;
+      height: 300px; width: 800px;
+      margin-top: -150px; margin-left: -400px;
+      z-index: 2;
+      opacity: 0;
+    }
+    .bg{
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; bottom: 0;
+      background: #000;
+      opacity: .3;
+      z-index: 1;
+    }
+    .link{
+      text-decoration: none;
+      color: #fff;
+      &:hover{
+        color: #eee;
+      }
+      &:active{
+        color: #f00;
+      }
+    }
+    .j_leave{
+      opacity: 0;
+      transition: all .5s ease .5s;
+    }
+    .avatar, .j_leave .avatar{
+      position: relative;
+      opacity: 0;
+      transition: all .5s ease .5s;
+      left: -30px;
+    }
+    strong, .j_leave strong{
+      position: relative;
+      opacity: 0;
+      top: -30px;
+      transition: all .5s ease .5s;
+    }
+    .j_enter{
+      opacity: 1;
+      transition: opacity .5s ease;
+      strong{
+        opacity: 1;
+        top: 0;
+        transition: all .5s ease .3s;
+      }
+      .avatar{
+        opacity: 1;
+        left: 0;
+        transition: all .5s ease .5s;
+      }
+    }
+  }
+  .section_1{
+    background-color: #00ACFE;
+    .bg{
+      background-image: -webkit-radial-gradient(circle contain,#4cc5fd,#00aeff);
+      background-image: -moz-radial-gradient(circle contain,#4cc5fd,#00aeff);
+      background-image: -o-radial-gradient(circle contain,#4cc5fd,#00aeff);
+      background-image: -ms-radial-gradient(circle contain,#4cc5fd,#00aeff);
+      background-image: radial-gradient(circle contain,#4cc5fd,#00aeff);
+      opacity: 1;
+    }
+    .avatar{
+      margin: 0; padding: 0;
+      background-image: url(../img/aboutme/me_03.png);
+      background-size: cover;
+      width: 596px; height: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      margin-left: -150px;
+      float: left;
+    }
+    .inner{
+      top: 0;
+      margin-top: 0;
+      height: 100%;
+      text-align: right;
+      .article{
+        width: 100%;
+        height: 140px;
+        position: absolute;
+        top: 50%;
+        margin-top: -70px;
+      }
+      strong{
+        font-size: 1.8rem;
+      }
+      small{
+        font-size: 0.6rem;
+      }
+    }
+  }
+  .section_2{
+    background-image: url(../img/aboutme/1.jpg);
+    text-shadow: 3px 3px 2px rgba(0,0,0,1);
+  }
+  .section_3{
+    background-color: #F94A71;
+    text-shadow: none;
+  }
+  .section_3 .thum{
+    width: 169px; height: 144px;
+    font-size: 0; text-indent: -9999px;
+    background: url(../img/aboutme/about_03.png) 0 0 no-repeat;
+    margin: 0 auto;
+  }
+  .section_4{
+    background-image: url(../img/aboutme/7.jpg);
+    text-align: right;
+  }
+  .section_5{
+    background-color: #FCCD39;
+    color: #261F19;
+    text-shadow: none;
+    text-align: left;
+  }
+  .section_5 .thum{
+    width: 342px; height: 145px;
+    font-size: 0; text-indent: -9999px;
+    background-image: url(../img/aboutme/about_07.png);
+    background-position: right 0;
+    background-repeat: no-repeat;
+    background-size: 230px;
+    margin-top: 120px;
+    margin-right: 20px;
+    float: right;
+  }
+  .section_6{
+    background-image: url(../img/aboutme/5.jpg);
+    text-align: right;
+  }
+  .section_7{
+    background-color: #5DBF48;
+    text-align: left;
+  }
+  .section_8{
+    background-image: url(../img/aboutme/2.jpg);
+  }
+  .section_8 .inner{
+    width: 700px;
+    margin-left: -350px;
+  }
+  .section_8 .avatar{
     float: left;
   }
-  .inner{
-    top: 0;
-    margin-top: 0;
-    height: 100%;
+  .section_8 p{
     text-align: right;
-    .article{
-      width: 100%;
-      height: 140px;
-      position: absolute;
-      top: 50%;
-      margin-top: -70px;
-    }
-    strong{
-      font-size: 1.8rem;
-    }
-    small{
-      font-size: 0.6rem;
-    }
   }
-}
-.section_2{
-  background-image: url(../img/aboutme/1.jpg);
-  text-shadow: 3px 3px 2px rgba(0,0,0,1);
-}
-.section_3{
-  background-color: #F94A71;
-  text-shadow: none;
-}
-.section_3 .thum{
-  width: 169px; height: 144px;
-  font-size: 0; text-indent: -9999px;
-  background: url(../img/aboutme/about_03.png) 0 0 no-repeat;
-  margin: 0 auto;
-}
-.section_4{
-  background-image: url(../img/aboutme/7.jpg);
-  text-align: right;
-}
-.section_5{
-  background-color: #FCCD39;
-  color: #261F19;
-  text-shadow: none;
-  text-align: left;
-}
-.section_5 .thum{
-  width: 342px; height: 145px;
-  font-size: 0; text-indent: -9999px;
-  background-image: url(../img/aboutme/about_07.png);
-  background-position: right 0;
-  background-repeat: no-repeat;
-  background-size: 230px;
-  margin-top: 120px;
-  margin-right: 20px;
-  float: right;
-}
-.section_6{
-  background-image: url(../img/aboutme/5.jpg);
-  text-align: right;
-}
-.section_7{
-  background-color: #5DBF48;
-  text-align: left;
-}
-.section_8{
-  background-image: url(../img/aboutme/2.jpg);
-}
-.section_8 .inner{
-  width: 700px;
-  margin-left: -350px;
-}
-.section_8 .avatar{
-  float: left;
-}
-.section_8 p{
-  text-align: right;
-}
-.slider{
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  font-size: 12px;
-  height: 300px;
-  margin-top: -150px;
-  li{
-    list-style: none;
-    a{
-      background: #fff;
-      width: 12px; height: 12px;
-      border-radius: 6px;
-      font-size: 0;
-      display: block;
-      margin: 20px 10px;
-      opacity: .6;
-    }
-    &.active a{
-      opacity: 1;
-      box-shadow: 0 2px 2px rgba(0,0,0,.5);
+  .slider{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 12px;
+    height: 300px;
+    margin-top: -150px;
+    li{
+      list-style: none;
+      a{
+        background: #fff;
+        width: 12px; height: 12px;
+        border-radius: 6px;
+        font-size: 0;
+        display: block;
+        margin: 20px 10px;
+        opacity: .6;
+      }
+      &.active a{
+        opacity: 1;
+        box-shadow: 0 2px 2px rgba(0,0,0,.5);
+      }
     }
   }
 }

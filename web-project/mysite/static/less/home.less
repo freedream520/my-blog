@@ -1,40 +1,17 @@
-.main{
-  .nav-imgs{
-    li{
-      float: left;
-      display: block;
-      margin: 0 60px 60px 0;
-      position: relative;
-      &:hover{
-        p{
-          opacity: 1;
-          .transition(opacity .2s ease);
-        }
-      }
-      p{
-        position: absolute;
-        opacity: 0;
-        width: 224px;
-        height: 32px;
-        margin: 3px;
-        line-height: 32px;
-        .box-sizing(border-box);
-        background: url(../../img/main/black-opacity.png) 0 0 repeat;
-        bottom: 0;
-        left: 0;
-        text-align: center;
-        color: @white;
-        vertical-align: middle;
-        font-weight: normal;
-        text-shadow: 0 1px 0 rgba(0,0,0,.9);
-      }
-    }
-    img{
-      width: 224px;
-      height: 124px;
-    }
+html, body{
+  height: 100%;
+  article{
+    height: 100%;
   }
-  
+}
+
+
+
+
+
+
+
+.main{  
   .nav-trends{
     color: @grayDark;
     time{
@@ -45,7 +22,7 @@
       margin-bottom: .8em;
       border-bottom: 1px solid @splitLineColor;
       position: relative;
-      a:hover > div{
+      a:hover{
         opacity: .9;
         .transition(all .2s ease 0);
       }
@@ -55,9 +32,15 @@
         height: 90px;
         width: 160px;
         background: #efefef none center center no-repeat;
-        .background-size(160px);
-        margin-left: 20px;
-        clear: both;
+        overflow: hidden;
+        text-align: center;
+        border: 1px solid #eee;
+        padding: 1px;
+        margin: 0 0 0 10px;
+        & > img{
+          height: 100%;
+          width: auto;
+        }
       }
       .memo{
         position: absolute;

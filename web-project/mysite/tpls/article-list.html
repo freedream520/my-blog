@@ -5,13 +5,13 @@
 {% block active_article %}active{% endblock %}
 
 {% block base_ctn %}
-<section class="main">
+<section class="main article-list-wrap">
 	<div class="container">
 		<br />
 		<br />
 		<div class="row">
 			<div class="span8">
-				<h3>所有文章 <small>ARTICLES</small></h3>
+				<h3>所有文章 <small>ALL</small></h3>
 				<ul class="nav-articles">
 					{% for article in articles %}
 					<li>
@@ -40,7 +40,7 @@
 				</ul>
 			</div>
 			<aside class="span3 offset1">
-				<h3>所有标签 <small>All TAGS</small></h3>
+				<h3>文章分类 <small>CATEGORY</small></h3>
 				<nav>
 					<ul class="nav nav-tags">
 						{% for tag in tags %}
