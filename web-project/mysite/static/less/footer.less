@@ -1,21 +1,26 @@
 body > footer{
-  background-color: #494949;
+  background-color: #fff;
   font: normal normal 12px @msyaheiFontFamily;
-  color: #fff;
-  text-align: center;
-  .nav-features{
-    margin: 2em 0;
-    padding: 0;
-    .ico{
-      display: block;
-      margin: 0 auto;
+  color: #888;
+  text-align: left;
+  .container{
+    border-top: 1px solid #efefef;
+    padding: 20px 0;
+  }
+  p img{
+    opacity: .8;
+    &:hover{
+      opacity: 1;
     }
-    p{
-      color: @white;
-      min-width: 147px;
-      a{
-        color: #A1FBFF;
-      }
+  }
+  a{
+    color: #888;
+    &:hover{
+      color: #666;
     }
+  }
+  .pull-right a{
+    display: inline-block;
+    margin-left: 10px;
   }
 }
