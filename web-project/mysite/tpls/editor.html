@@ -3,7 +3,7 @@
 {% block title %}编辑文章{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="/static/css/plugins/wysiwyg.css">
+<link rel="stylesheet" href="{{STATIC_URL}}/css/plugins/wysiwyg.css">
 <style>
 	.tabs-left{
 		position: fixed;
@@ -159,8 +159,8 @@
 		</div>
 {% endblock %}
 {% block js %}
-<script src="/static/js/src/plugins/jquery.hotkeys.js"></script>
-<script src="/static/js/src/plugins/bootstrap.min.js"></script>
-<script src="/static/js/src/plugins/bootstrap-wysiwyg.js"></script>
-<script src="/static/js/src/page_editor.js"></script>
+<script src="{{STATIC_URL}}/js/src/plugins/jquery.hotkeys.js"></script>
+<script src="{{STATIC_URL}}/js/src/plugins/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}/js/src/plugins/bootstrap-wysiwyg.js"></script>
+<script src="{{STATIC_URL}}/js/src/page_editor.js"></script>
 {% endblock %}

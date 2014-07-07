@@ -21,8 +21,8 @@ else:
     MYSQL_HOST = '127.0.0.1'
     MYSQL_PORT = '3306'
     MYSQL_USER = 'root'
-    MYSQL_PASS = 'rayzy1991'
-    MYSQL_DB   = 'app_lpgray'
+    MYSQL_PASS = 'root'
+    MYSQL_DB   = 'app_rayzy1991'
 
 DATABASES = {
     'default': {
@@ -78,7 +78,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://lpgray-static.stor.sinaapp.com'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

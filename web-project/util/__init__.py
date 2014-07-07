@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 import json
 import types
-import sae
+# import sae
 import ConfigParser
 from mysite.settings import CONFIG_PATH
 

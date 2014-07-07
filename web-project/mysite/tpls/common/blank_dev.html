@@ -7,10 +7,10 @@
 		<meta charset="utf-8">
 		<title>Blog of lpgray | 张杨的博客 {% block title %}{% endblock title %}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--[if lt IE 9]> <script src="/static/js/lib/hack/html5.js"></script> <![endif]-->
-		<link rel="stylesheet" href="/static/css/bootstrap/bootstrap.css" />
-		<link rel="stylesheet" href="/static/css/plugins/prettify.css" />
-		<link href="/static/css/font/font-awesome.css" rel="stylesheet">
+		<!--[if lt IE 9]> <script src="{{STATIC_URL}}/js/lib/hack/html5.js"></script> <![endif]-->
+		<link rel="stylesheet" href="{{STATIC_URL}}/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" href="{{STATIC_URL}}/css/plugins/prettify.css" />
+		<link rel="stylesheet" href="{{STATIC_URL}}/css/font/font-awesome.css" rel="stylesheet">
 		{% block css %} {% endblock css %}
 	</head>
 	<body>
@@ -20,11 +20,11 @@
 		{% block ctn %}
 
 		{% endblock ctn %}
-		<script src="/static/js/lib/jquery-1.9.1.min.js"></script>
-		<script src="/static/js/src/plugins/bootstrap.min.js"></script>
-        <script src="/static/js/lib/prettify.js"></script>
-		<script src="/static/js/src/plugins/gtmap.formvalidate.js"></script>
-		<script src="/static/js/src/base.js"></script>
+		<script src="{{STATIC_URL}}/js/lib/jquery-1.9.1.min.js"></script>
+		<script src="{{STATIC_URL}}/js/src/plugins/bootstrap.min.js"></script>
+        <script src="{{STATIC_URL}}/js/lib/prettify.js"></script>
+		<script src="{{STATIC_URL}}/js/src/plugins/gtmap.formvalidate.js"></script>
+		<script src="{{STATIC_URL}}/js/src/base.js"></script>
 		{% block js %} {% endblock js %}
 	</body>
 </html>
