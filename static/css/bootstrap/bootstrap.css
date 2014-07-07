@@ -3867,7 +3867,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   height: 40px;
-  color: #144972;
+  color: #333;
   padding: 0 1em;
   line-height: 40px;
   text-decoration: none;
@@ -3883,7 +3883,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
   background-color: #eee;
-  color: #144972;
+  color: #333;
 }
 .navbar .nav > li > a:active {
   background-color: #eaeaea;
@@ -3892,7 +3892,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus,
 .navbar .nav > .active > a:active {
-  color: #144972;
+  color: #333;
   font-weight: bold;
   cursor: default;
   text-decoration: none;
@@ -5192,6 +5192,15 @@ body > footer .pull-right a {
   display: inline-block;
   margin-left: 10px;
 }
+@media (min-width: 320px) and (max-width: 720px) {
+  body > footer {
+    padding: 0 20px;
+  }
+  body > footer .pull-left,
+  body > footer .pull-right {
+    float: none;
+  }
+}
 @-webkit-keyframes suofang {
   0% {
     -webkit-transform: scale(4);
@@ -5444,7 +5453,7 @@ form .uneditable-input.error:focus {
   margin-bottom: 0;
 }
 .banner {
-  background: #1779d5 url(http://lpgray-media.stor.sinaapp.com/banner/ma.png) center center no-repeat;
+  background: #1779d5 url(http://lpgray-media.stor.sinaapp.com/banner/ma.png) left center no-repeat;
   background-size: cover;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -5630,27 +5639,33 @@ form .uneditable-input.error:focus {
   line-height: 16px;
   text-align: center;
 }
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner .nav-tabs li > a {
+    padding: 3px 10px;
+  }
+}
 .banner-home {
   padding: 0;
   margin: 0;
   height: 100%;
 }
-.banner-home .btn-mini {
-  font-size: 14px;
-  width: 80px;
-  padding: 2px 0;
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner-home {
+    height: 400px;
+    background-position: -100px center;
+  }
 }
-.banner-home .btn-mini i {
-  font-size: 16px;
-}
-.banner-article,
-.banner-about {
+.banner-article {
   padding-top: 60px;
 }
-.banner-article h1,
-.banner-about h1 {
+.banner-article h1 {
   font-size: 2.6em;
   line-height: 1em;
+}
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner-article h1 {
+    font-size: 2em;
+  }
 }
 html,
 body {
@@ -5662,6 +5677,8 @@ body article {
 }
 .main .nav-trends {
   color: #3e3e3e;
+  padding: 0;
+  margin: 0;
 }
 .main .nav-trends time {
   display: inline-block;
@@ -5671,6 +5688,7 @@ body article {
   margin-bottom: .8em;
   border-bottom: 1px solid #eeebe7;
   position: relative;
+  list-style: none;
 }
 .main .nav-trends li a:hover {
   opacity: .9;
@@ -5711,6 +5729,15 @@ body article {
 .main h3.noborder {
   border-color: transparent;
 }
+@media (min-width: 320px) and (max-width: 720px) {
+  .main .nav-trends li .img-wrap {
+    width: 100px;
+    height: 60px;
+  }
+  .main .nav-trends li .memo {
+    left: 0;
+  }
+}
 .article-list-wrap {
   padding-top: 50px;
 }
@@ -5739,6 +5766,9 @@ body article {
   background-color: #efefef;
   border: 1px solid #d9d9d9;
   margin: 0 auto;
+}
+.article-detail form .checkbox.inline {
+  display: none;
 }
 .nav-articles {
   list-style: none;
@@ -5781,6 +5811,12 @@ body article {
 }
 .nav-articles > a {
   display: block;
+}
+@media (min-width: 320px) and (max-width: 720px) {
+  .nav-articles li time {
+    top: auto;
+    bottom: 0;
+  }
 }
 .nav-tags a {
   margin-top: 1em;

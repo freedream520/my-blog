@@ -28,6 +28,7 @@
     border: 1px solid #d9d9d9;
     margin: 0 auto;
   }
+  form .checkbox.inline{display: none;}
 }
 
 .nav-articles{
@@ -71,6 +72,10 @@
   & > a{
     display: block;
   }
+}
+
+@media (min-width:320px) and (max-width: 720px){
+  .nav-articles li time{top: auto;bottom: 0;}
 }
 
 .nav-tags{

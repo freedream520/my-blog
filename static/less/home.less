@@ -14,6 +14,8 @@ html, body{
 .main{  
   .nav-trends{
     color: @grayDark;
+    padding: 0;
+    margin: 0;
     time{
       display: inline-block;
     }
@@ -22,6 +24,7 @@ html, body{
       margin-bottom: .8em;
       border-bottom: 1px solid @splitLineColor;
       position: relative;
+      list-style: none;
       a:hover{
         opacity: .9;
         .transition(all .2s ease 0);
@@ -59,6 +62,19 @@ html, body{
     font: normal normal 1.5em @msyaheiFontFamily;
     &.noborder{
       border-color: transparent;
+    }
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .main .nav-trends{
+    li{
+      .img-wrap{
+        width: 100px;
+        height: 60px;
+      }
+      .memo{left: 0;}
     }
   }
 }

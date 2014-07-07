@@ -1,5 +1,5 @@
 .banner{
-  background: #1779D5 url(http://lpgray-media.stor.sinaapp.com/banner/ma.png) center center no-repeat;
+  background: #1779D5 url(http://lpgray-media.stor.sinaapp.com/banner/ma.png) left center no-repeat;
   background-size: cover;
   .box-sizing(border-box);
   color: @white;
@@ -154,7 +154,13 @@
     }
   }
 }
-
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner{
+    .nav-tabs{
+      li > a{padding: 3px 10px;}
+    }
+  }
+}
 
 
 
@@ -166,13 +172,11 @@
   padding: 0;
   margin: 0;
   height: 100%;
-  .btn-mini{
-    font-size: 14px;
-    width: 80px;
-    padding: 2px 0;
-    i{
-      font-size: 16px;
-    }
+}
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner-home{
+    height: 400px;
+    background-position: -100px center;
   }
 }
 
@@ -182,11 +186,15 @@
 
 
 
-.banner-article,
-.banner-about{
+.banner-article{
   padding-top: 60px;
   h1 {
     font-size: 2.6em;
     line-height: 1em;
+  }
+}
+@media (min-width: 320px) and (max-width: 720px) {
+  .banner-article{
+    h1{font-size:2em;}
   }
 }
