@@ -49,7 +49,7 @@ class Article( BaseModel ):
         tags = []
         if postTags:
             stags = postTags.strip().lstrip().rstrip().split(',')
-            tags =  [Tag.objects.get_or_create(name = tag)[0] for tag in stags]
+            tags =  [Tag.objects.get_or_create(name = tag.lower())[0] for tag in stags]
         
         kwarg = {'name':title, 'desc':summary, 'content': content}
         

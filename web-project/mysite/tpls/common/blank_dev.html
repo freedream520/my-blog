@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>      <html class="no-scripts lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-scripts lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-scripts lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head lang="zh-CN">
 		<meta charset="utf-8">
-		<title>Blog of lpgray | 张杨的博客 {% block title %}{% endblock title %}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--[if lt IE 9]> <script src="{{STATIC_URL}}/js/lib/hack/html5.js"></script> <![endif]-->
-		<link rel="stylesheet" href="{{STATIC_URL}}/css/bootstrap/bootstrap.css" />
+		<title>张杨的博客 {% block title %}{% endblock title %}</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=false">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--[if lt IE 9]> <script src="{{STATIC_URL}}/scripts/lib/html5.scripts"></script> <![endif]-->
+
+        <link rel="stylesheet" href="{{STATIC_URL}}/css/bootstrap/bootstrap.css" />
 		<link rel="stylesheet" href="{{STATIC_URL}}/css/plugins/prettify.css" />
 		<link rel="stylesheet" href="{{STATIC_URL}}/css/font/font-awesome.css" rel="stylesheet">
 		{% block css %} {% endblock css %}
@@ -20,11 +24,11 @@
 		{% block ctn %}
 
 		{% endblock ctn %}
-		<script src="{{STATIC_URL}}/js/lib/jquery-1.9.1.min.js"></script>
-		<script src="{{STATIC_URL}}/js/src/plugins/bootstrap.min.js"></script>
-        <script src="{{STATIC_URL}}/js/lib/prettify.js"></script>
-		<script src="{{STATIC_URL}}/js/src/plugins/gtmap.formvalidate.js"></script>
-		<script src="{{STATIC_URL}}/js/src/base.js"></script>
+		<script src="{{STATIC_URL}}/scripts/lib/jquery-1.11.1.min.js"></script>
+		<script src="{{STATIC_URL}}/scripts/plugins/bootstrap.min.js"></script>
+        <script src="{{STATIC_URL}}/scripts/lib/prettify.js"></script>
+		<script src="{{STATIC_URL}}/scripts/plugins/gtmap.formvalidate.js"></script>
+		<script src="{{STATIC_URL}}/scripts/base.js"></script>
 		{% block js %} {% endblock js %}
 	</body>
 </html>

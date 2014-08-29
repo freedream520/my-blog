@@ -22,7 +22,7 @@ else:
     MYSQL_PORT = '3306'
     MYSQL_USER = 'root'
     MYSQL_PASS = 'root'
-    MYSQL_DB   = 'app_rayzy1991'
+    MYSQL_DB   = 'lpgray'
 
 DATABASES = {
     'default': {

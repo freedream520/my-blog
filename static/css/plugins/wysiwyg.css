@@ -39,3 +39,5 @@ div[data-role="editor-toolbar"] {
 .dropdown-menu a {
   cursor: pointer;
 }
+
+textarea{line-height: 20px;}
