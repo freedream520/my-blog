@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});
 	
 	var $bub = $('#J_FeedBub');
-	if($bub.html() == 0){
-		$bub.css('display', 'none');
+	if($bub.html() != 0){
+		$bub.show();
 	}
 });

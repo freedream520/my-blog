@@ -1,5 +1,7 @@
 {% extends  "common/base.html" %}
 
+{% block title %}{{ article.name }} - {% endblock title %}
+
 {% block active_article %}active{% endblock %}
 
 {% block base_ctn %}
@@ -7,7 +9,7 @@
 	<div class="container">
 		<br />
 		<nav class="breadcrumbs">
-			<a href="/">首页</a> / <a href="/article/query">文章列表</a> / <a class="active" href="#">阅读文章</a>
+			<a href="/">首页</a> / <a href="/article/query">文章列表</a> / <a class="active">阅读文章</a>
 		</nav>
 		<br />
 		<h1>{{ article.name }}</h1>
@@ -28,7 +30,7 @@
 					<a href="/article/{{ article.id }}">文章</a>
 				</li>
 				<li class="{% block tab_feeds %}{% endblock %}">
-					<a href="/article/feeds?aId={{ article.id }}">留言<div id="J_FeedBub" class="bubble">
+					<a href="/article/{{ article.id }}/feeds/">留言<div id="J_FeedBub" class="bubble">
 						{{ article.comment_set.all|length }}
 					</div></a>
 				</li>
@@ -43,7 +45,7 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{STATIC_URL}}/js/src/page_feed.js"></script>
-<script src="{{STATIC_URL}}/js/lib/prettify.js"></script>
+<script src="{{STATIC_URL}}/scripts/page_feed.js"></script>
+<script src="{{STATIC_URL}}/scripts/lib/prettify.js"></script>
 <script>prettyCode('body')</script>
 {% endblock %}
