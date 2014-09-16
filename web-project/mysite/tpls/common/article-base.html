@@ -24,18 +24,18 @@
 			<a href="/article/query?tags__name={{tag.name}}" class="tag">{{ tag.name }}</a>
 			{% endfor %}
 		</p>
-		<nav>
-			<ul class="nav nav-tabs">
-				<li class="{% block tab_article %}{% endblock %}">
-					<a href="/article/{{ article.id }}">文章</a>
-				</li>
-				<li class="{% block tab_feeds %}{% endblock %}">
-					<a href="/article/{{ article.id }}/feeds/">留言<div id="J_FeedBub" class="bubble">
-						{{ article.comment_set.all|length }}
-					</div></a>
-				</li>
-			</ul>
-		</nav>
+		<!--<nav>-->
+			<!--<ul class="nav nav-tabs">-->
+				<!--<li class="{% block tab_article %}{% endblock %}">-->
+					<!--<a href="/article/{{ article.id }}">文章</a>-->
+				<!--</li>-->
+				<!--<li class="{% block tab_feeds %}{% endblock %}">-->
+					<!--<a href="/article/{{ article.id }}/feeds/">留言<div id="J_FeedBub" class="bubble">-->
+						<!--{{ article.comment_set.all|length }}-->
+					<!--</div></a>-->
+				<!--</li>-->
+			<!--</ul>-->
+		<!--</nav>-->
 	</div>
 </section>
 {% block article_ctn %} {% endblock %}

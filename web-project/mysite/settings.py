@@ -16,6 +16,8 @@ if 'SERVER_SOFTWARE' in os.environ:
     from sae.const import (
         MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASS, MYSQL_DB
     )
+
+    STATIC_URL = 'http://lpgray-static.stor.sinaapp.com'
 else:
     # Make `python manage.py syncdb` works happy!
     MYSQL_HOST = '127.0.0.1'
@@ -23,6 +25,8 @@ else:
     MYSQL_USER = 'root'
     MYSQL_PASS = 'root'
     MYSQL_DB   = 'lpgray'
+
+    STATIC_URL = 'http://dev.lpgray-static.stor.sinaapp.com'
 
 DATABASES = {
     'default': {
@@ -78,7 +82,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://lpgray-static.stor.sinaapp.com'
+# STATIC_URL = 'http://lpgray-static.stor.sinaapp.com'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -172,7 +176,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.csrf",
     "django.core.context_processors.request",
-#    "ctx_processor.saeMediaPath"
+    "common.middleware.globalVar"
 )
 
 # A sample logging configuration. The only tangible logging

@@ -17,3 +17,9 @@ class CloseSiteMiddleware(object):
         c = RequestContext(request, {})
         t = loader.get_template("temp/comming.html")
         return HttpResponse(t.render(c))
+
+def globalVar(request):
+    config = {
+        "SITE_URL" : "http://lpgray.sinaapp.com"
+    }
+    return config;

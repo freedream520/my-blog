@@ -27,7 +27,7 @@
 						<p>
 							{% spaceless %}{{article.desc}}{{ article.content|striptags|slice:"100" }}{% endspaceless %}
 						</p>
-						<a href="/article/feeds?aId={{article.id}}">{{ article.comment_set.all|length }}人回复</a>
+						<!--<a href="/article/{{article.id}}/feeds">{{ article.comment_set.all|length }}人回复</a>-->
 					</li>
 					{% endfor %}
 					<li>

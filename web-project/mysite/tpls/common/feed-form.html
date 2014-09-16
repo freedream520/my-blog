@@ -1,24 +1,41 @@
-<form id="formFeed" action="/article/feed/save/" method="post" class="j_vali_form">
-	<br />
-	<hr />
-	<br />
-	<div class="row-fluid">
-		<input data-validate="required" name="usrname" type="text" class="span4" placeholder="称呼" value="{{ request.COOKIES.usrname }}"/><input data-validate="email" name="email" type="text" class="span4" placeholder="邮箱" value="{{ request.COOKIES.email }}"/><input name="memo" type="text" class="span4" placeholder="微博/QQ/个人网站（不会公开）"/>
-		<br />
-		<textarea data-validate="required" style="margin: 10px 0 0 0;" name="content" class="span12" rows="5" placeholder="在这里留言"></textarea>
-		<br /><br />
-		<div class="pull-right">
-			<label for="mailMe" class="checkbox inline">
-				<input id="mailMe" type="checkbox" />
-				有回复邮件通知我&nbsp;&nbsp;</label>
-			<button class="btn btn-primary btn-large">发 送 留 言</button>
-		</div>
-		<input type="hidden" name="aId" value="{{article.id}}"/>
-		<input type="hidden" name="cId" value=""/>
-		<input type="hidden" name="rootId" value=""/>
-		{% csrf_token %}
-	</div>
-</form>
-<br />
-<br />
-<br />
+<!--<form id="formFeed" action="/article/feed/save/" method="post" class="j_vali_form">-->
+	<!--<br />-->
+	<!--<hr />-->
+	<!--<br />-->
+	<!--<div class="row-fluid">-->
+		<!--<input data-validate="required" name="usrname" type="text" class="span4" placeholder="称呼" value="{{ request.COOKIES.usrname }}"/><input data-validate="email" name="email" type="text" class="span4" placeholder="邮箱" value="{{ request.COOKIES.email }}"/><input name="memo" type="text" class="span4" placeholder="微博/QQ/个人网站（不会公开）"/>-->
+		<!--<br />-->
+		<!--<textarea data-validate="required" style="margin: 10px 0 0 0;" name="content" class="span12" rows="5" placeholder="在这里留言"></textarea>-->
+		<!--<br /><br />-->
+		<!--<div class="pull-right">-->
+			<!--<label for="mailMe" class="checkbox inline">-->
+				<!--<input id="mailMe" type="checkbox" />-->
+				<!--有回复邮件通知我&nbsp;&nbsp;</label>-->
+			<!--<button class="btn btn-primary btn-large">发 送 留 言</button>-->
+		<!--</div>-->
+		<!--<input type="hidden" name="aId" value="{{article.id}}"/>-->
+		<!--<input type="hidden" name="cId" value=""/>-->
+		<!--<input type="hidden" name="rootId" value=""/>-->
+		<!--{% csrf_token %}-->
+	<!--</div>-->
+<!--</form>-->
+<!--<br />-->
+<!--<br />-->
+<!--<br />-->
+        <br><br>
+        <!-- 多说评论框 start -->
+        <div class="ds-thread" data-thread-key="{{article.id}}" data-title="{{article.name}}" data-url="{{SITE_URL}}/article/{{article.id}}"></div>
+        <!-- 多说评论框 end -->
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"lpgray"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+        <!-- 多说公共JS代码 end -->
