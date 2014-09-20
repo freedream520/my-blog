@@ -12,6 +12,6 @@ urlpatterns = patterns('',
     url(r'^query/$', 'article.views.showArticleList'),
     url(r'^remove/$', 'article.views.removeArticle'),
     url(r'^([1-9]\d*)/$', 'article.views.showArticle'),
-    url(r'^feed/save/$','article.views.saveComment'),
-    url(r'^(?P<aId>\d*)/feeds/$','article.views.showFeeds')
+    # url(r'^feed/save/$','article.views.saveComment'),
+    # url(r'^(?P<aId>\d*)/feeds/$','article.views.showFeeds')
 )
