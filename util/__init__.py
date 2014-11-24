@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User
-import json
-import types
-# import sae
-import ConfigParser
-from mysite.settings import CONFIG_PATH
+# import json
+# import types
+# import ConfigParser
+# # from mysite.settings import CONFIG_PATH
 
 def get_or_create_usr(email, usrname):
     back = []
@@ -23,11 +22,11 @@ def sae_save_file( f , storage_name , file_name = None ):
         file_name = f._get_name()
     return bucket.put_object(file_name, f)
 
-def get_config_map(file_name, object_name):
-    back = {}
-    cp = ConfigParser.ConfigParser()
-    with open(CONFIG_PATH + file_name,'r') as cfgFile:
-        cp.readfp(cfgFile)
-        items = cp.items(object_name)
-        for item in items : back[item[0]] = item[1]
-    return back
+# def get_config_map(file_name, object_name):
+#     back = {}
+#     cp = ConfigParser.ConfigParser()
+#     with open(CONFIG_PATH + file_name,'r') as cfgFile:
+#         cp.readfp(cfgFile)
+#         items = cp.items(object_name)
+#         for item in items : back[item[0]] = item[1]
+#     return back

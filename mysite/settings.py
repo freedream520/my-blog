@@ -1,7 +1,6 @@
 import os
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-CONFIG_PATH = ROOT_PATH + '/config/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -119,14 +118,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'common.middleware.RequestContextMiddleware',
-#    'common.middleware.CloseSiteMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#     'django.middleware.cache.UpdateCacheMiddleware',
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.transaction.TransactionMiddleware',
-#     'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -138,7 +129,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    ROOT_PATH + '/tpls'
+    ROOT_PATH + '/templates'
 )
 
 INSTALLED_APPS = (
@@ -154,7 +145,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'common',
     'article',
-    'trend',
 )
 
 PASSWORD_HASHERS = (
