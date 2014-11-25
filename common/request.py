@@ -8,6 +8,8 @@ class Pageable:
     size = 5
     page = 1
     count = 0
+    hasNext = False
+    hasPrev = False
     
     def __init__(self, request, size = 5, page = 1):
         self.size = size

@@ -13,6 +13,13 @@ class BaseMgr(models.Manager):
             pagin.count = self.filter(id__gte=1, enabled=True, **kwgs).count()
             start = (pagin.page - 1) * pagin.size
             end = (pagin.page - 1) * pagin.size + pagin.size
+
+            if pagin.size * pagin.page < pagin.count:
+                pagin.hasNext = True
+
+            if pagin.page > 1:
+                pagin.hasPrev = True
+
             return self.filter(id__gte=1, enabled=True, **kwgs).all()[start : end]
         else:
             return self.filter(id__gte=1, enabled=True, **kwgs).all()

@@ -5,9 +5,10 @@
 	<title>{% block title %}Zhang Yang's Blog{% endblock %}</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/styles/prettify.css">
-	<link rel="stylesheet" href="/public/styles/style.css">
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles/prettify.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/style.css">
 </head>
 <body>
 	<!-- 主导航 -->
@@ -21,16 +22,16 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">ZhangYang's Blog</a>
+	      <a class="navbar-brand" href="/"><img class="mb-avatar img-circle" src="{{ STATIC_URL }}images/avatar.jpg"> ZhangYang's Blog</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="mb-collapse" aria-expanded="false" style="height:1px">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="/">首页</a></li>
-	        <li><a href="/tag/html5">HTML5</a></li>
-	        <li><a href="/tag/Node.js">Node.js</a></li>
-	        <li><a href="/tag/生活">生活杂记</a></li>
+	        <li><a href="/article/query?tags__name=html5">HTML5</a></li>
+	        <li><a href="/article/query?tags__name=Node.js">Node.js</a></li>
+	        <li><a href="/article/query?tags__name=生活">生活杂记</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -69,7 +70,9 @@
                     <!-- 文章标签 -->
                     <h4>标签集</h4>
                     <div>
-                        {% block tags %}{% endblock %}
+                        {% for tag in tags %}
+                        <a href="/article/query?tags__name={{tag.name}}" class="label label-default">{{ tag.name }} ({{ tag.articleNum }})</a>
+                        {% endfor %}
                     </div>
                     <!-- /文章标签 -->
                 </div>
@@ -87,10 +90,11 @@
 	</footer>
 	<!-- /全局页脚 -->
 
-	<script src="/public/assets/jquery/jquery-1.11.1.min.js"></script>
-	<script src="/public/assets/bootstrap/js/bootstrap.js"></script>
+	<script src="{{ STATIC_URL }}assets/jquery/jquery-1.11.1.min.js"></script>
+	<script src="{{ STATIC_URL }}assets/bootstrap/js/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}scripts/prettify.js"></script>
     <script>
-	$('body').find('.codearea').addClass('prettyprint');
+    $('body').find('.codearea').addClass('prettyprint');
 	window.prettyPrint && prettyPrint();
 	</script>
 </body>

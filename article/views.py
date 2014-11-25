@@ -24,8 +24,7 @@ def showArticleList( request ):
 @require_GET
 def showArticle( request, aid ):
     article = Article.objects.get(id=aid)
-    tags = article.tags.all()
-    map(lambda t:t.setArticleNum(t.article_set.count()), tags)
+    tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM ms_articles_tags AS at, ms_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
     return resp('post.html', locals())
 
 @login_required

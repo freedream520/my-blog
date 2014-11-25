@@ -1,1 +1,41 @@
-post
+{% extends "base.html" %}
+
+{% block title %}{{ article.name }}{% endblock %}
+
+{% block content %}
+<div class="mb-article">
+    <h2>{{ article.name }}</h2>
+    {{ article.content|safe }}
+    <br>
+    <p class="mb-article-infos">
+        <span><i class="glyphicon glyphicon-time"></i> {{ article.create_at }}</span>
+        <span><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="//weibo.com/zhangyangray">Zhang Yang</a></span>
+        <span>
+           <i class="glyphicon glyphicon-tags"></i>
+           {% for articleTag in article.tags.all %}
+           <a href="/tag/{{ articleTag.name }}">{{ articleTag.name }}</a>&nbsp;&nbsp;
+           {% endfor %}
+        </span>
+    </p>
+</div>
+
+<div class="ms-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="35" data-title="{{article.name}}"
+         data-url="http://lpgray.sinaapp.com/article/35"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+	        var duoshuoQuery = {short_name:"lpgray"};
+	            (function() {
+	                var ds = document.createElement('script');
+	                ds.type = 'text/javascript';ds.async = true;
+	                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+	                ds.charset = 'UTF-8';
+	                (document.getElementsByTagName('head')[0]
+	                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	            })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+{% endblock %}
