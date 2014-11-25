@@ -5,20 +5,31 @@
     {% for article in articles %}
     <li>
         <h2><a href="/article/{{article.id}}">{{article.name}}</a></h2>
+        {% if article.thumnail %}
         <div class="row">
             <div class="col-md-4">
-                <img src="" alt="{{article.name}}">
+                <img src="{{ article.thumnail }}" alt="{{article.name}}">
             </div>
             <div class="col-md-8">
                 <p>{% spaceless %}{{ article.content|striptags|slice:"198" }}{% endspaceless %}</p>
+
                 <div class="text-right">
                     <a href="/article/{{article.id}}">View more</a>
                 </div>
             </div>
         </div>
+        {% else %}
+        <p>{% spaceless %}{{ article.content|striptags|slice:"198" }}{% endspaceless %}</p>
+
+        <div class="text-right">
+            <a href="/article/{{article.id}}">View more</a>
+        </div>
+        {% endif %}
+
         <p class="mb-article-infos">
             <span><i class="glyphicon glyphicon-time"></i> {{ article.create_at }}</span>
-            <span><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="//weibo.com/zhangyangray">Zhang Yang</a></span>
+            <span><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="//weibo.com/zhangyangray">Zhang
+                Yang</a></span>
             <span>
                 <i class="glyphicon glyphicon-tags"></i>
                 {% for articleTag in article.tags.all %}
@@ -33,10 +44,12 @@
 
 <div class="mb-pagin">
     {% if page.hasPrev %}
-    <a href="/article/query/?page.page={{ page.page|add:"-1" }}&page.size=5"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a href="/article/query/?page.page={{ page.page|add:"-1" }}&page.size=5"><i
+        class="glyphicon glyphicon-chevron-left"></i></a>
     {% endif %}
     {% if page.hasNext %}
-    <a href="/article/query/?page.page={{ page.page|add:"1" }}&page.size=5"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    <a href="/article/query/?page.page={{ page.page|add:"1" }}&page.size=5"><i
+        class="glyphicon glyphicon-chevron-right"></i></a>
     {% endif %}
 </div>
 {% endblock %}

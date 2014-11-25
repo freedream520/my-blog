@@ -33,7 +33,7 @@ class Article( BaseModel ):
     content = models.TextField( null = False )
     tags = models.ManyToManyField( Tag )
 
-    temp_tags = [] # for signal
+    thumnail = None
     temp_imgs = [] # for signal
 
     @classmethod
