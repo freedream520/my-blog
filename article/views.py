@@ -16,7 +16,7 @@ from django.template.response import SimpleTemplateResponse as resp
 import re
 
 ## 提取文章中的图片做插图显示
-thumnailPattern = r'<img src="?(\S+(.png|.jpg|.jpeg|.gif))">'
+thumnailPattern = re.compile(r'<img src="?(\S+(.png|.jpg|.jpeg|.gif))">', re.IGNORECASE)
 
 ## === Article ===
 @require_GET
