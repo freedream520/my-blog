@@ -29,27 +29,25 @@ def showArticleList( request ):
         if imgSrcs and len(imgSrcs) > 0:
             article.thumnail = imgSrcs[0][0]
 
-    tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM ms_articles_tags AS at, ms_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
+    tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM mb_articles_tags AS at, mb_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
     return resp('article-list.html', locals())
 
 @require_GET
 def showArticle( request, aid ):
     article = Article.objects.get(id=aid)
-    tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM ms_articles_tags AS at, ms_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
+    tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM mb_articles_tags AS at, mb_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
     return resp('post.html', locals())
 
 @login_required
 @require_POST
 def saveArticle( request ):
-    imgs = None
-    if request.FILES.has_key('imgs'):
-        imgs = request.FILES.getlist('imgs')
+    # imgs = None
+    # if request.FILES.has_key('imgs'):
+    #     imgs = request.FILES.getlist('imgs')
     article = Article.saveArticle(request.POST.get('id', None)
-                              , request.POST['title']
-                              , request.POST['desc']
-                              , request.POST['tags']
+                              , request.POST['markdown']
                               , request.POST['content']
-                              , imgs )
+                              , request.POST['tags'] )
 
     return redirect('/article/' + str( article.id ))
 

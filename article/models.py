@@ -8,13 +8,20 @@ Created on 2013-6-26
 from django.contrib.admin.models import User
 from common.models import BaseModel
 from django.db import models
-import util
-from mysite.settings import MEDIA_URL
-import uuid
+# from mysite.settings import MEDIA_URL
+# import uuid
+
+# def sae_save_file( f , storage_name , file_name = None ):
+#     from sae.storage import Bucket
+#     bucket = Bucket(storage_name)
+#     print bucket
+#     if file_name is None:
+#         file_name = f._get_name()
+#     return bucket.put_object(file_name, f)
 
 class Tag( BaseModel ):
     class Meta:
-        db_table = 'ms_tags'
+        db_table = 'mb_tags'
     
     articleNum = 0
     
@@ -26,56 +33,57 @@ class Tag( BaseModel ):
    
 class Article( BaseModel ):
     class Meta:
-        db_table = 'ms_articles'
-        ordering = ['-create_at']
+        db_table = 'mb_articles'
+        ordering = ['-created_at']
     
-    user = models.ForeignKey( User, null=True )    
+    user = models.ForeignKey( User, null=True )
     content = models.TextField( null = False )
+    markdown = models.TextField( null = False )
     tags = models.ManyToManyField( Tag )
 
     thumnail = None
     temp_imgs = [] # for signal
 
     @classmethod
-    def saveArticle(cls, articleId, title, summary, postTags, content, imgs = None):
-        tags = []
+    def saveArticle(cls, articleId, markdown, content, postTags):
+
         if postTags:
-            stags = postTags.strip().lstrip().rstrip().split(',')
-            tags =  [Tag.objects.get_or_create(name = tag.lower())[0] for tag in stags]
+            stags = postTags.strip().lstrip().rstrip().split(' ')
+            tags =  [Tag.objects.get_or_create(name = tag.lower().strip().lstrip().rstrip())[0] for tag in stags]
         
-        kwarg = {'name':title, 'desc':summary, 'content': content}
+        kwarg = {'markdown':markdown, 'content': content}
         
         if articleId:
             article = cls.objects.get(id = articleId)
-            article.name = title
+            article.name = ''
             article.tags = tags
-            article.desc = summary
+            article.markdown = markdown
             article.content = content
         else:
             article = cls(**kwarg)
         
-        if imgs is not None:
-            for img in imgs:
-                newname = str(uuid.uuid1()) + img._get_name()[img._get_name().rindex('.'):]
-                names = article.saveFile(img, newname)
-                article.content = article.changeContent(article.content.strip().lstrip().rstrip(), names)
+        # if imgs is not None:
+        #     for img in imgs:
+        #         newname = str(uuid.uuid1()) + img._get_name()[img._get_name().rindex('.'):]
+        #         names = article.saveFile(img, newname)
+        #         article.content = article.changeContent(article.content.strip().lstrip().rstrip(), names)
             
         article.save()
         
         return article
     
-    def saveFile(self, img, newname):
-        if newname is None:
-            newname = img._get_name()
-        util.sae_save_file(img, 'media', newname)
-        self.temp_imgs.append( newname )
-        return [img._get_name(), newname]
+    # def saveFile(self, img, newname):
+    #     if newname is None:
+    #         newname = img._get_name()
+    #     sae_save_file(img, 'media', newname)
+    #     self.temp_imgs.append( newname )
+    #     return [img._get_name(), newname]
     
-    def changeContent(self, content, names):
-        find = '##' + names[0] + '##'
-        path = MEDIA_URL + '' + names[1]
-        will = '<img src="' + path + '" />'
-        return content.replace(find, will)
+    # def changeContent(self, content, names):
+    #     find = '##' + names[0] + '##'
+    #     path = MEDIA_URL + '' + names[1]
+    #     will = '<img src="' + path + '" />'
+    #     return content.replace(find, will)
         
         
 # class Comment( BaseModel ):
