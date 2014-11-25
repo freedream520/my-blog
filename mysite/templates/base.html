@@ -1,1 +1,97 @@
-base
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Zhang Yang's Blog{% endblock %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/styles/prettify.css">
+	<link rel="stylesheet" href="/public/styles/style.css">
+</head>
+<body>
+	<!-- 主导航 -->
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mb-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">ZhangYang's Blog</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="mb-collapse" aria-expanded="false" style="height:1px">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/">首页</a></li>
+	        <li><a href="/tag/html5">HTML5</a></li>
+	        <li><a href="/tag/Node.js">Node.js</a></li>
+	        <li><a href="/tag/生活">生活杂记</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-- /主导航 -->
+	
+	<!-- 主显示区 -->
+	<div class="mb-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="col-md-4">
+                    <!--个人信息-->
+                    <div role="tabpanel" class="mb-tab-panel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#mb-weibo" aria-control="mb-weibo" role="tab" data-toggle="tab">微博</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#mb-github" aria-control="mb-github" role="tab" data-toggle="tab">Github</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mb-tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="mb-weibo">
+                                <a href="http://weibo.com/u/2381479703?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/2381479703/6463fd65/1.png"/></a>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="mb-github">
+                                <iframe width="100%" src="http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/个人信息-->
+
+                    <!-- 文章标签 -->
+                    <h4>标签集</h4>
+                    <div>
+                        {% block tags %}{% endblock %}
+                    </div>
+                    <!-- /文章标签 -->
+                </div>
+            </div>
+        </div>
+	</div>
+	<!-- /主显示区 -->
+	
+
+	<!-- 全局页脚 -->
+	<footer>
+		<div class="container container-fluid text-center">
+			<p>&copy;2014 Zhang Yang. 本博客使用 <a href="https://www.djangoproject.com/" target="_blank">django</a> 开发，运行在<a href="//sae.sinaapp.com.cn" target="_blank">新浪云服务</a>上。</p>
+		</div>
+	</footer>
+	<!-- /全局页脚 -->
+
+	<script src="/public/assets/jquery/jquery-1.11.1.min.js"></script>
+	<script src="/public/assets/bootstrap/js/bootstrap.js"></script>
+    <script>
+	$('body').find('.codearea').addClass('prettyprint');
+	window.prettyPrint && prettyPrint();
+	</script>
+</body>
+</html>
