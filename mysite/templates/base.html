@@ -61,7 +61,7 @@
                                 <a href="http://weibo.com/u/2381479703?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/2381479703/6463fd65/1.png"/></a>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="mb-github">
-                                <iframe width="100%" src="http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037" frameborder="0"></iframe>
+                                <iframe id="J_githubFrame" width="100%" src="" frameborder="0"></iframe>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
 
                     <!-- 文章标签 -->
                     <h4>标签集</h4>
-                    <div>
+                    <div class="mb-tags">
                         {% for tag in tags %}
                         <a href="/article/query?tags__name={{tag.name}}" class="label label-default">{{ tag.name }} ({{ tag.articleNum }})</a>
                         {% endfor %}
@@ -96,6 +96,9 @@
     <script>
     $('body').find('.codearea').addClass('prettyprint');
 	window.prettyPrint && prettyPrint();
+	$(document).ready(function(){
+	    $('#J_githubFrame').attr('src', 'http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037');
+	});
 	</script>
 </body>
 </html>

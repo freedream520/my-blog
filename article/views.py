@@ -16,17 +16,19 @@ from django.template.response import SimpleTemplateResponse as resp
 import re
 
 ## 提取文章中的图片做插图显示
-thumnailPattern = re.compile(r'<img src="?(\S+(.png|.jpg|.jpeg|.gif))">', re.IGNORECASE)
+thumnailPattern = re.compile(r'<img src="?(\S+(.png|.jpg|.jpeg|.gif))".+>', re.IGNORECASE)
 
 ## === Article ===
 @require_GET
 def showArticleList( request ):
     page = Pageable(request)
     articles = Article.objects.query(page, request)
+    # 提取文章中的图片用于列表中的插图显示
     for article in articles:
         imgSrcs = re.findall(thumnailPattern, article.content)
-        if imgSrcs:
+        if imgSrcs and len(imgSrcs) > 0:
             article.thumnail = imgSrcs[0][0]
+
     tags = Tag.objects.raw('SELECT at.tag_id AS id, t.name AS name, COUNT(at.tag_id) AS articleNum FROM ms_articles_tags AS at, ms_tags AS t WHERE at.tag_id = t.id GROUP BY at.tag_id')
     return resp('article-list.html', locals())
 
