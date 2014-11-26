@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from common.request import Pageable
 from django.views.decorators.http import require_POST, require_GET
 from django.template.response import SimpleTemplateResponse as resp
+from django.http import HttpResponse
+from django.utils import simplejson
 
 import re
 
@@ -41,15 +43,22 @@ def showArticle( request, aid ):
 @login_required
 @require_POST
 def saveArticle( request ):
-    # imgs = None
-    # if request.FILES.has_key('imgs'):
-    #     imgs = request.FILES.getlist('imgs')
-    article = Article.saveArticle(request.POST.get('id', None)
+    article = Article.saveArticle(request.POST.get('articleId', None)
                               , request.POST['markdown']
                               , request.POST['content']
-                              , request.POST['tags'] )
-
-    return redirect('/article/' + str( article.id ))
+                              , request.POST.get('tags', None) )
+    data = {
+        'status' : True,
+        'data' : {
+            'article' : {
+                'id' : article.id,
+                'name' : article.name,
+                'created_at' : article.created_at
+            }
+        }
+    }
+    # return HttpResponse(simplejson.dumps(data), mimetype='application/json')
+    return redirect('/article/' + str(article.id))
 
 @login_required
 @require_GET
@@ -60,10 +69,13 @@ def removeArticle( request ):
 @login_required
 @require_GET
 def editArticle( request ):
-    try:
-        article = Article.objects.get(id = request.GET['id'])
-    except:
-        article = None
+    articleId = request.GET.get('id', None)
+    article = None
+    if articleId:
+        article = Article.objects.get(id = articleId)
+        article.displayTags = ''
+        for tag in article.tags.all():
+            article.displayTags += tag.name + '  '
     locals().update(csrf(request))
     return resp('editor.html', locals())
 

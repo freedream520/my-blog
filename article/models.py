@@ -22,7 +22,9 @@ from django.db import models
 class Tag( BaseModel ):
     class Meta:
         db_table = 'mb_tags'
-    
+
+    article = models.ManyToManyField( Article )
+
     articleNum = 0
     
     def setArticleNum(self, num):
@@ -42,31 +44,26 @@ class Article( BaseModel ):
     tags = models.ManyToManyField( Tag )
 
     thumnail = None
-    temp_imgs = [] # for signal
+    displayTags = None
 
     @classmethod
-    def saveArticle(cls, articleId, markdown, content, postTags):
+    def saveArticle(cls, articleId, markdown, content, tags):
+        if tags:
+            stags = tags.lstrip().rstrip().split(' ')
+            tags = [Tag.objects.get_or_create(name = tag.lower().strip())[0] for tag in stags]
 
-        if postTags:
-            stags = postTags.strip().lstrip().rstrip().split(' ')
-            tags =  [Tag.objects.get_or_create(name = tag.lower().strip().lstrip().rstrip())[0] for tag in stags]
-        
-        kwarg = {'markdown':markdown, 'content': content}
+        name = getArticleTitle(markdown)
+        kwarg = {'name':name, 'markdown':markdown, 'content': content}
         
         if articleId:
             article = cls.objects.get(id = articleId)
-            article.name = ''
+            article.name = name
             article.tags = tags
             article.markdown = markdown
             article.content = content
         else:
             article = cls(**kwarg)
-        
-        # if imgs is not None:
-        #     for img in imgs:
-        #         newname = str(uuid.uuid1()) + img._get_name()[img._get_name().rindex('.'):]
-        #         names = article.saveFile(img, newname)
-        #         article.content = article.changeContent(article.content.strip().lstrip().rstrip(), names)
+            article.tags = tags
             
         article.save()
         
@@ -84,8 +81,15 @@ class Article( BaseModel ):
     #     path = MEDIA_URL + '' + names[1]
     #     will = '<img src="' + path + '" />'
     #     return content.replace(find, will)
-        
-        
+
+import re
+titlePattern = re.compile(r'#(\s|\S)*\n', re.IGNORECASE)
+def getArticleTitle (articleMarkdown):
+    match = titlePattern.match(articleMarkdown)
+    if match:
+        return match.group()[0]
+    return None
+
 # class Comment( BaseModel ):
 #     class Meta:
 #         db_table = 'ms_comments'
