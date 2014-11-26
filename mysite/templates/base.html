@@ -67,8 +67,9 @@
                                 <h4>微信扫一扫，加我为好友</h4>
                                 <img src="{{ STATIC_URL }}images/wechat.png"/>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="mb-github">
-                                <iframe id="J_githubFrame" width="100%" src="" frameborder="0"></iframe>
+                            <div role="tabpanel" class="tab-pane text-center" id="mb-github">
+                                <h4>访问我的github: <a href="https://github.com/lpgray" target="_blank">@lpgray</a></h4>
+                                <p>github profile card 正在开发中...</p>
                             </div>
                         </div>
                     </div>
@@ -102,10 +103,10 @@
     <script src="{{ STATIC_URL }}assets/highlightjs/highlight.min.js"></script>
 	<script src="{{ STATIC_URL }}assets/marked.js"></script>
 	<script src="{{ STATIC_URL }}scripts/editor.js"></script>
-    <script>
-    $(document.body).ready(function(){
-        $('#J_githubFrame').attr('src', 'http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037');
-    });
-    </script>
+    <!--<script>-->
+    <!--$(document.body).ready(function(){-->
+        <!--$('#J_githubFrame').attr('src', 'http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037');-->
+    <!--});-->
+    <!--</script>-->
 </body>
 </html>

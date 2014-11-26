@@ -3,9 +3,10 @@
 {% block title %}{{ article.name }}{% endblock %}
 
 {% block content %}
-<div class="mb-article">
+<div class="mb-article clearfix">
     <!--<h1>{{ article.name }}</h1>-->
     {{ article.content|safe }}
+    <div class="clearfix"></div>
     <br>
     <p class="mb-article-infos">
         <span><i class="glyphicon glyphicon-time"></i> {{ article.created_at }}</span>
