@@ -30,6 +30,8 @@
 	Editor.fn.init = function() {
 		var _ = this;
 
+		this.storeKey = 'mb_' + location.pathname + location.search;
+
 		// 设置marked
 		marked.setOptions({
 			highlight: function(code) {
@@ -41,9 +43,7 @@
 		this.edit();
 
 		// 加载历史纪录
-		if (!this.options.articleId) {
-			this.loadSaved();
-		}
+		this.loadSaved();
 
 		// 绑定自动保存
 		$(this.options.editor).on('keyup', function(){
@@ -95,7 +95,7 @@
 		if (localStorage) {
 			clearTimeout(_._tip1Func);
 			clearTimeout(_._tip2Func);
-			localStorage.setItem('mbautosave', $(_.options.editor).val());
+			localStorage.setItem(this.storeKey, $(_.options.editor).val());
 			_.autoSavingTip.show(function() {
 				_._tip1Func = setTimeout(function() {
 					_.autoSavingSuccessTip.show();
@@ -109,8 +109,9 @@
 	};
 
 	Editor.fn.loadSaved = function() {
-		if (localStorage) {
-			$(this.options.editor).val(localStorage.getItem('mbautosave'));
+		var markdown = localStorage.getItem(this.storeKey);
+		if (localStorage && markdown) {
+			$(this.options.editor).val(markdown);
 		}
 	};
 

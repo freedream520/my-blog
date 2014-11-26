@@ -13,12 +13,12 @@ font-size: 2.6em;background:#f45145;height:80px;width:80px;line-height: 80px;bor
 text-align: center;top:-45px;left: 50%;margin-left: -40px;}*/
 .ms-comments{background: #fff;padding:25px;margin: 0 0 50px 0;}
 .mb-article-list img{margin-bottom: 10px;}
-.mb-article-infos{margin-top: .5em;line-height:24px;clear:both;}
+.mb-article-infos{margin-top: 1em;line-height:24px;clear:both;}
 .mb-article-infos span{display: inline-block; margin-right: 10px;color:#9ba2af;font-size: 1.1em;}
 .mb-article-infos span i{margin-right: 5px;font-size: 1.1em}
 .mb-article-infos a,.mb-article-list .text-right a{color:#9ba2af;}
 .mb-article ul{padding-left: 1.2em}
-.mb-article img{background: #eee;padding: 5px;float: left;width:250px;margin:10px 20px 10px 0;}
+.mb-article img{background: #eee;float: left;width:250px;margin-right: 20px;}
 
 .mb-pagin{text-align: right;padding: 0 0 30px 0;}
 .mb-pagin a{display: inline-block;height: 46px;width: 46px;line-height: 46px;font-size: 1.4em;color: #fff;

@@ -16,6 +16,9 @@
            <a href="/article/query/?tags__name={{ articleTag.name }}">{{ articleTag.name }}</a>&nbsp;
            {% endfor %}
         </span>
+        {% if user.is_authenticated %}
+        <a href="/edit?id={{article.id}}" class="btn btn-default btn-sm pull-right">Edit</a>
+        {% endif %}
     </p>
 </div>
 
