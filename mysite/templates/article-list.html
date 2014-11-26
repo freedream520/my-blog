@@ -33,7 +33,7 @@
             <span>
                 <i class="glyphicon glyphicon-tags"></i>
                 {% for articleTag in article.tags.all %}
-                <a href="/tag/{{ articleTag.name }}">{{ articleTag.name }}</a>&nbsp;&nbsp;
+                <a href="/article/query/?tags__name={{ articleTag.name }}">{{ articleTag.name }}</a>&nbsp;
                 {% endfor %}
             </span>
         </p>

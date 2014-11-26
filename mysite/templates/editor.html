@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mb-article">
+    <div class="form-group text-right">
+        <div id="J_modeSwitcher" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default active">
+                <input type="radio" name="options" autocomplete="off" checked> Write
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="options" autocomplete="off"> Preview
+            </label>
+        </div>
+    </div>
+    <form id="editor-editblock" action="/article/save/" method="post">
+        <!-- <div class="form-group">
+            <input type="text" class="form-control" placeholder="文章标题">
+        </div> -->
+        <div class="form-group">
+            <textarea id="editor-editor" name="markdown" class="form-control" style="height:300px;width:100%;overflow-y:auto;"
+                      placeholder="写 Markdown 格式的文章...">{{ article.markdown }}</textarea>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></div>
+                {% if article.displayTags %}
+                <input name="tags" type="text" class="form-control" value="{{ article.displayTags }}">
+                {% else %}
+                <input name="tags" type="text" class="form-control" placeholder="输入标签用半角逗号隔开">
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group" style="margin-bottom: 10px;">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                <input type="text" class="form-control" value="Zhang Yang" disabled>
+            </div>
+        </div>
+        <input name="articleId" type="hidden" value="{{ article.id }}">
+        <input name="content" type="hidden" value="">
+        {% csrf_token %}
+    </form>
+    <div id="editor-preview">
+
+    </div>
+    <div class="form-group text-right">
+        <div id="editor-autosave-tips" class="pull-left">
+            <small>Saving draft...</small>
+            <small class="text-success">Success!</small>
+        </div>
+        <button id="J_submit" class="btn btn-default btn-lg">Submit</button>
+    </div>
+</div>
+{% endblock %}

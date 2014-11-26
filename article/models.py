@@ -23,8 +23,6 @@ class Tag( BaseModel ):
     class Meta:
         db_table = 'mb_tags'
 
-    article = models.ManyToManyField( Article )
-
     articleNum = 0
     
     def setArticleNum(self, num):
@@ -49,12 +47,11 @@ class Article( BaseModel ):
     @classmethod
     def saveArticle(cls, articleId, markdown, content, tags):
         if tags:
-            stags = tags.lstrip().rstrip().split(' ')
-            tags = [Tag.objects.get_or_create(name = tag.lower().strip())[0] for tag in stags]
+            stags = tags.strip().lstrip().rstrip().split()
+            tags = [Tag.objects.get_or_create(name = tag.lower().strip().lstrip().rstrip())[0] for tag in stags]
 
-        name = getArticleTitle(markdown)
+        name = article_title(markdown)
         kwarg = {'name':name, 'markdown':markdown, 'content': content}
-        
         if articleId:
             article = cls.objects.get(id = articleId)
             article.name = name
@@ -63,6 +60,7 @@ class Article( BaseModel ):
             article.content = content
         else:
             article = cls(**kwarg)
+            article.save()
             article.tags = tags
             
         article.save()
@@ -83,11 +81,13 @@ class Article( BaseModel ):
     #     return content.replace(find, will)
 
 import re
-titlePattern = re.compile(r'#(\s|\S)*\n', re.IGNORECASE)
-def getArticleTitle (articleMarkdown):
+
+titlePattern = re.compile(r'#.*')
+
+def article_title (articleMarkdown):
     match = titlePattern.match(articleMarkdown)
     if match:
-        return match.group()[0]
+        return match.group()[1:].strip()
     return None
 
 # class Comment( BaseModel ):
