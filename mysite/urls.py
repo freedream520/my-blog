@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^$', 'article.views.showArticleList'),
     url(r'^article/', include('article.urls')),
     url(r'^edit/', 'article.views.editArticle'),
+    url(r'^feed/', 'article.views.feed'),
     
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),

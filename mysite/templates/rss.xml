@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Zhang Yang's Blog</title>
+        <link>http://www.h5shop.org/</link>
+        <description>Zhang Yang's Blog.</description>
+        <language>zh-cn</language>
+        <pubDate>{{datetime}}</pubDate>
+        <lastBuildDate>{{datetime}}</lastBuildDate>
+        <docs>http://www.h5shop.org/feed</docs>
+        <managingEditor>px.zhangyang@gmail.com</managingEditor>
+        <webMaster>px.zhangyang@gmail.com</webMaster>
+        {% for article in articles %}
+        <item>
+            <title>{{ article.name }}</title>
+            <link>
+                http://www.h5shop.org/article/{{article.id}}
+            </link>
+            <description>
+                {% spaceless %}{{ article.content|striptags|slice:"198" }}{% endspaceless %}
+            </description>
+            <pubDate>{{article.created_at}}</pubDate>
+            <guid>
+                http://www.h5shop.org/article/{{article.id}}
+            </guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

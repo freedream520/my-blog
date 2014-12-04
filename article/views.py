@@ -12,10 +12,12 @@ from django.contrib.auth.decorators import login_required
 from common.request import Pageable
 from django.views.decorators.http import require_POST, require_GET
 from django.template.response import SimpleTemplateResponse as resp
+from django.template import Context, Template
+from django.conf import settings
 from django.http import HttpResponse
-from django.utils import simplejson
 
 import re
+import os
 
 ## 提取文章中的图片做插图显示
 thumnailPattern = re.compile(r'<img src="?(\S+(.png|.jpg|.jpeg|.gif))".+>', re.IGNORECASE)
@@ -47,17 +49,6 @@ def saveArticle( request ):
                               , request.POST['markdown']
                               , request.POST['content']
                               , request.POST.get('tags', None) )
-    data = {
-        'status' : True,
-        'data' : {
-            'article' : {
-                'id' : article.id,
-                'name' : article.name,
-                'created_at' : article.created_at
-            }
-        }
-    }
-    # return HttpResponse(simplejson.dumps(data), mimetype='application/json')
     return redirect('/article/' + str(article.id))
 
 @login_required
@@ -80,59 +71,22 @@ def editArticle( request ):
     return resp('editor.html', locals())
 
 
-## === Comment ===
-# @require_GET
-# def showFeeds( request, aId ):
-#     article = Article.objects.get(id = aId)
-#     return resp('article-feed.html', locals())
-#
-# @require_POST
-# def saveComment( request ):
-#     email = request.POST['email']
-#     usrname = request.POST['usrname']
-#     content = request.POST['content']
-#     article = Article.objects.get(id = request.POST['aId'])
-#
-#
-#     kwarg = {'user' : util.get_or_create_usr(email, usrname),'content' : content}
-#
-#     desc = request.POST.get('memo', None)
-#     if desc : kwarg['desc'] = desc
-#
-#     rootId = request.POST.get('rootId', None)
-#     if rootId : kwarg['root_komment'] = Comment.objects.get(id = rootId)
-#
-#     kommentId = request.POST.get('cId', None)
-#     if content.strip().count('#-') is 1 and kommentId:
-#         pattern = re.compile('(#-).*(-#\s*)')
-#         content = pattern.sub('', content)
-#         komment = Comment.objects.get(id = kommentId)
-#
-#         kwarg['content'] = content
-#         kwarg['komment'] = komment
-#     else:
-#         kwarg['article'] = article
-#
-#     comment = Comment(**kwarg)
-#     comment.save()
-#
-#     resp = HttpResponseRedirect('/article/'+str(article.id)+'/feeds#comment-'+str(comment.id))
-#     ## if not request.COOKIES.has_key('email') or not request.COOKIES.has_key('usrname'):
-#     resp.set_cookie('email', value = email, max_age = 31536000, httponly = True)
-#     resp.set_cookie('usrname', value = usrname.encode('utf-8'), max_age = 31536000, httponly = True)
-#
-#     return resp
-#
-# @require_GET
-# def deleteComment( request ):
-#     comment = Comment.objects.get(id=request.GET['id'])
-#     articleId = comment.article.id
-#     comment.delete()
-#     return redirect('/article/'+articleId)
+def feed( request ):
+    page = Pageable(request)
+    articles = Article.objects.query(page, request)
+    datetime = articles[0].created_at
 
+    file = open(settings.PROJECT_PATH + '/mysite/templates/rss.xml', 'r')
+    content = file.read()
+    file.close()
 
-##=== Tag ===
-# @require_GET
-# def queryTags( request ):
-#     back = Tag.objects.query( request = request )
-#     return HttpResponse( serializers.serialize('json', back) )
+    template = Template(content)
+    vars = Context({
+        "articles" : articles,
+        "datetime" : datetime
+    })
+
+    result = template.render(vars)
+    response = HttpResponse(result)
+    response["Content-Type"] = "application/rss+xml; charset=UTF-8"
+    return response
