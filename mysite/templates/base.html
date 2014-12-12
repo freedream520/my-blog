@@ -7,8 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ STATIC_URL }}assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}assets/highlightjs/default.min.css">
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/style.css">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b022c0d0e7b765f312c76df302ac4b3b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
 </head>
 <body>
 	<!-- 主导航 -->
@@ -49,27 +60,55 @@
                     <!--个人信息-->
                     <div role="tabpanel" class="mb-tab-panel">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
+                            <li role="presentation">
                                 <a href="#mb-weibo" aria-control="mb-weibo" role="tab" data-toggle="tab">微博</a>
                             </li>
                             <li role="presentation">
                                 <a href="#mb-weixin" aria-control="mb-github" role="tab" data-toggle="tab">微信</a>
                             </li>
-                            <li role="presentation">
+                            <li role="presentation" class="active">
                                 <a href="#mb-github" aria-control="mb-github" role="tab" data-toggle="tab">Github</a>
                             </li>
                         </ul>
                         <div class="tab-content mb-tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="mb-weibo">
+                            <div role="tabpanel" class="tab-pane" id="mb-weibo">
                                 <a href="http://weibo.com/u/2381479703?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/2381479703/6463fd65/1.png"/></a>
                             </div>
                             <div role="tabpanel" class="tab-pane mb-tab-weixin" id="mb-weixin">
                                 <h4>微信扫一扫，加我为好友</h4>
                                 <img src="{{ STATIC_URL }}images/wechat.png"/>
                             </div>
-                            <div role="tabpanel" class="tab-pane text-center" id="mb-github">
-                                <h4>访问我的github: <a href="https://github.com/lpgray" target="_blank">@lpgray</a></h4>
-                                <p>github profile card 正在开发中...</p>
+                            <div role="tabpanel" class="tab-pane mb-github-card active" id="mb-github">
+                                {% if githubInfo and githubInfo.avatar_url %}
+                                <img src="{{githubInfo.avatar_url}}"/>
+                                <a class="btn btn-default btn-xs" href="{{githubInfo.html_url}}" target="_blank"><i class="fa fa-github-alt"></i> Follow</a>
+                                <h1>{{githubInfo.name}}</h1>
+                                <h2>{{githubInfo.login}}</h2>
+                                <hr />
+                                <p><i class="fa fa-group"></i><a href="http://www.xici.net" target="_blank">{{githubInfo.company}}</a></p>
+                                <p><i class="fa fa-location-arrow"></i>{{githubInfo.location}}</p>
+                                <p><i class="fa fa-envelope"></i><a href="mailto:{{githubInfo.email}}">{{githubInfo.email}}</a></p>
+                                <p><i class="fa fa-link"></i><a href="javascript:;">{{githubInfo.blog}}</a></p>
+                                <hr />
+                                <div class="numbers">
+                                    <div class="cell">
+                                        <a href="https://github.com/{{githubInfo.login}}/followers" target="_blank">{{githubInfo.followers}}</a>
+                                        <small>Followers</small>
+                                    </div>
+                                    <div class="cell">
+                                        <a href="{{githubInfo.html_url}}" target="_blank">{{githubInfo.public_repos}}</a>
+                                        <small>Repos</small>
+                                    </div>
+                                    <div class="cell">
+                                        <a href="https://github.com/{{githubInfo.login}}/following" target="_blank">{{githubInfo.following}}</a>
+                                        <small>Following</small>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="https://github.com/lpgray" target="_blank">@lpgray</a><br/>
+                                github api error<br/>
+                                {{githubInfo}}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -83,6 +122,10 @@
                         {% endfor %}
                     </div>
                     <!-- /文章标签 -->
+
+                    <div class="mb-nav-links">
+                        <a href="/feed"><i class="fa fa-rss-square"></i> <span>订阅我的博客</span></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,5 +151,10 @@
         <!--$('#J_githubFrame').attr('src', 'http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037');-->
     <!--});-->
     <!--</script>-->
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb022c0d0e7b765f312c76df302ac4b3b' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
 </body>
 </html>

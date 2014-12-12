@@ -22,4 +22,4 @@ def globalVar(request):
     config = {
         "SITE_URL" : "http://lpgray.sinaapp.com"
     }
-    return config;
+    return config

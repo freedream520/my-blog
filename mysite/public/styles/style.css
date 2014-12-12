@@ -4,18 +4,13 @@ img{max-width: 100%;}
 
 .mb-main{padding: 60px 0;background: #f0f1f3}
 
-.mb-tab-panel{margin-bottom: 20px;}
-
 .mb-article-list h1,.mb-article h1{margin: 0 0 .7em 0;text-align: center;line-height: 1.3em;color:#f45145;}
 .mb-article-list li,.mb-article{background: #fff;border-top: 10px solid #f45145;margin: 0 0 50px 0;padding: 27px 25px 25px;position: relative;word-break:break-word;}
-/*.mb-article-list li:before,.mb-article:before{content: "\e142"; font-family: 'Glyphicons Halflings';color: #fff;
-font-size: 2.6em;background:#f45145;height:80px;width:80px;line-height: 80px;border-radius: 50%;position: absolute;
-text-align: center;top:-45px;left: 50%;margin-left: -40px;}*/
 .ms-comments{background: #fff;padding:25px;margin: 0 0 50px 0;}
 .mb-article-list img{margin-bottom: 10px;}
 .mb-article-infos{margin-top: 1em;line-height:24px;clear:both;}
 .mb-article-infos span{display: inline-block; margin-right: 10px;color:#9ba2af;font-size: 1.1em;}
-.mb-article-infos span i{margin-right: 5px;font-size: 1.1em}
+.mb-article-infos span i{margin-right: 5px;font-size: 1.4em}
 .mb-article-infos a,.mb-article-list .text-right a{color:#9ba2af;}
 .mb-article ul{padding-left: 1.2em}
 .mb-article img{background: #eee;float: left;width:250px;margin-right: 20px;}
@@ -25,13 +20,31 @@ text-align: center;top:-45px;left: 50%;margin-left: -40px;}*/
 background: #ccc;text-align: center;margin-left: 5px;}
 .mb-pagin a:hover{background: #bbb}
 
+.mb-tab-panel{margin-bottom: 20px;}
 .mb-tab-content{padding: 5px;border: 1px solid #fff;border-top: none;background: #fff}
 
 .mb-tags{line-height: 2.4em;}
-.mb-tags .label{line-height: 1em;font-size: .9em;font-weight: normal;margin-right:5px;padding: .2em .4em}
+.mb-tags .label{line-height: 1em;font-size: .9em;font-weight: normal;margin-right:5px;padding: .2em .4em;transition:all .5s ease;}
+.mb-tags .label:hover{transform:rotateX(360deg);background:#F4584D;color:#fff}
+
+.mb-nav-links{border-top:1px dashed #D8D5D5;margin: 2em 0;padding: 1em 0;}
+.mb-nav-links a{color: #79839B;transition:all .5s ease;border-radius:4px;padding:0 .2em}
+.mb-nav-links a:hover{transform:rotateX(360deg);background:#F4584D;color:#fff}
 
 .mb-tab-weixin img{max-width: 222px;margin: 0 auto;display:block;}
 .mb-tab-weixin h4{text-align: center;}
+
+.mb-github-card{font-size: 14px;line-height: 20px;margin: 10px;}
+.mb-github-card .btn{float: right;margin-top: 8px;}
+.mb-github-card img{width: 100%;border-radius: 5px;}
+.mb-github-card h1{font-size: 2em;margin: .3em 0 0;font-weight: bolder;line-height: 1}
+.mb-github-card h2{font-size: 1.5em;margin: .3em 0;color: #BBB;line-height: 1}
+.mb-github-card hr{margin: 1em 0;}
+.mb-github-card p{margin: 0 0 .3em;padding: 0;}
+.mb-github-card p .fa{color: #ccc;width:20px;vertical-align: middle;}
+.mb-github-card .numbers .cell{display: inline-block;width: 32.3%;text-align: center;}
+.mb-github-card .numbers .cell a{font-size: 2em;display: block;margin-bottom: 5px;}
+.mb-github-card .numbers .cell small{color: #ccc;}
 
 footer{padding: 40px 0; border-top: 1px solid #eee;color:#fff;}
 footer a{color:#fff;}
